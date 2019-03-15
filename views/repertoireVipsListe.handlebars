@@ -1,0 +1,12 @@
+Cliquez sur une lettre :
+{{#each lettreVIP}}
+    <a href="/repertoire/{{this.LETTRE}}">{{this.LETTRE}}</a>
+{{/each}}
+</br></br>
+
+{{#each detailLettreVip}}
+    <div class="listeVip">
+        <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/></br>
+        <a href="/repertoire/vip/{{this.VIP_NUMERO}}">{{this.VIP_NOM}} {{this.VIP_PRENOM}}</a>
+    </div>
+{{/each}}
