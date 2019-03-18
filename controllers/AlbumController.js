@@ -24,3 +24,39 @@ module.exports.ListerAlbum = function (request, response) {
         }
     );
 };
+
+module.exports.ListerPhoto = function (request, response) {
+    response.title = 'Album des stars';
+    let numVIP = request.params.numVIP;
+
+    async.parallel([
+            function (callback) {
+                model.getAllPhoto(function (err, result) {
+                    callback(null, result)
+                })
+            },
+            function (callback) {
+                model.getAllPhotoVip(numVIP, function (err, result) {
+                    callback(null, result)
+                })
+            },
+            function (callback) {
+                model.getNbPhoto(numVIP, function (err, result) {
+                    callback(null, result)
+                })
+            }
+        ],
+        function (err, result) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            response.photo = result[0];
+            response.photoVIP = result[1];
+            response.nbPhoto = result[2];
+            response.render('albumListeVipPhoto', response);
+        }
+    );
+};
+

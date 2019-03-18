@@ -3,9 +3,36 @@ let db = require('../configDb');
 module.exports.getAllPhoto = function (callback) {
     db.getConnection(function (err, connexion) {
         if (!err) {
-            let sql = "SELECT photo.PHOTO_ADRESSE FROM photo WHERE photo.PHOTO_NUMERO = 1"
+            let sql = "SELECT vip.VIP_NUMERO, photo.PHOTO_ADRESSE " +
+                "FROM vip join photo on vip.VIP_NUMERO = photo.VIP_NUMERO WHERE photo.PHOTO_NUMERO = 1"
             connexion.query(sql, callback);
             connexion.release();
         }
     });
 };
+
+module.exports.getAllPhotoVip = function (numVIP, callback) {
+    db.getConnection(function (err, connexion) {
+        if (!err) {
+            let sql = "SELECT vip.VIP_NUMERO, photo.PHOTO_ADRESSE, photo.PHOTO_COMMENTAIRE  " +
+                "FROM vip join photo on vip.VIP_NUMERO = photo.VIP_NUMERO " +
+                "WHERE vip.VIP_NUMERO = " + numVIP + "";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
+module.exports.getNbPhoto = function (numVIP, callback) {
+    db.getConnection(function (err, connexion) {
+        if (!err) {
+            let sql = "SELECT COUNT(photo.PHOTO_NUMERO) as nb FROM vip JOIN photo ON vip.VIP_NUMERO = photo.VIP_NUMERO " +
+                "WHERE vip.VIP_NUMERO = " + numVIP + "";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
+
+

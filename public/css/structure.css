@@ -141,6 +141,8 @@ img {
 /* Gallerie */
 
 .photo{
+    float: left;
+    display: inline-block;
     border: 1px solid black;
     border-radius: 10px;
     width: 44%;
@@ -159,6 +161,23 @@ img {
     margin-left: 72%;
     margin-bottom: 2%;
     margin-top: 2%;
+}
+
+.photo2{
+    display: inline-block;
+}
+
+.photo2 img{
+    height: 200px;
+    padding-top: 100px;
+}
+
+.commentaire{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10%;
+    width: 150%;
+
 }
 
 /* infobulle */

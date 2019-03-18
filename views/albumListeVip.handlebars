@@ -1,13 +1,14 @@
 <h1> Album Photo </h1>
-</br></br>
+
 <div class="photo">
     {{#if photo}}
         {{#each photo}}
             <div class="reglage">
-                <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/> </br>
+                <a href="/album/{{this.VIP_NUMERO}}"><img src="/images/vip/{{this.PHOTO_ADRESSE}}"/> </a></br>
             </div>
         {{/each}}
     {{/if}}
     <input type="button" value="Suivant" class="suivant">
 </div>
 </br></br>
+

@@ -4,7 +4,7 @@ let AlbumController = require('./../controllers/AlbumController');
 let ArticleController = require('./../controllers/ArticleController');
 
 // Routes
-module.exports = function(app){
+module.exports = function (app) {
 
 // Main Routes
     app.get('/', HomeController.Index);
@@ -15,8 +15,9 @@ module.exports = function(app){
     app.get('/repertoire/:LETTRE', VipController.DetailLettre);
     app.get('/repertoire/vip/:numVIP', VipController.DetailVIP);
 
- // albums
-   app.get('/album', AlbumController.ListerAlbum);
+    // albums
+    app.get('/album', AlbumController.ListerAlbum);
+    app.get('/album/:numVIP', AlbumController.ListerPhoto);
 
 //article
     app.get('/articles', ArticleController.ChoixArticle);
