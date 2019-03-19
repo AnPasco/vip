@@ -14,7 +14,7 @@ module.exports.getAllPhoto = function (callback) {
 module.exports.getAllPhotoVip = function (numVIP, callback) {
     db.getConnection(function (err, connexion) {
         if (!err) {
-            let sql = "SELECT vip.VIP_NUMERO, photo.PHOTO_ADRESSE, photo.PHOTO_COMMENTAIRE  " +
+            let sql = "SELECT vip.VIP_NUMERO, photo.PHOTO_ADRESSE, vip.VIP_PRENOM, vip.VIP_NOM, photo.PHOTO_COMMENTAIRE  " +
                 "FROM vip join photo on vip.VIP_NUMERO = photo.VIP_NUMERO " +
                 "WHERE vip.VIP_NUMERO = " + numVIP + "";
             connexion.query(sql, callback);

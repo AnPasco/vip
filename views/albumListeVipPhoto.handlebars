@@ -15,12 +15,15 @@
     {{#if photoVIP}}
         {{#ifCond nbPhoto.0.nb "==" '1'}}
             {{#each photoVIP}}
+                <div class="nom">
+                    <b>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</b>
+                </div>
+                </br></br>
                 <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/>
                 </br></br>
                 <div class="commentaire">
                     {{this.PHOTO_COMMENTAIRE}}
                 </div>
-
             {{/each}}
         {{/ifCond}}
     {{/if}}

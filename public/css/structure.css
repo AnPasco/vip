@@ -138,7 +138,7 @@ img {
     padding-right: 30px;
 }
 
-/* Gallerie */
+/* Galerie */
 
 .photo{
     float: left;
@@ -169,15 +169,19 @@ img {
 
 .photo2 img{
     height: 200px;
-    padding-top: 100px;
+    padding-left: 45px;
 }
 
 .commentaire{
     border: 1px solid black;
     border-radius: 10px;
     padding: 10%;
-    width: 150%;
+    width: 100%;
+}
 
+.nom{
+    padding-left: 45px;
+    padding-top: 100px;
 }
 
 /* infobulle */
