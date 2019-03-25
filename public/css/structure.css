@@ -158,9 +158,15 @@ img {
 }
 
 .suivant{
+    display: inline-block;
     margin-left: 72%;
     margin-bottom: 2%;
     margin-top: 2%;
+}
+
+.precedent{
+    margin-right: 12%;
+    display: inline-block;
 }
 
 .photo2{

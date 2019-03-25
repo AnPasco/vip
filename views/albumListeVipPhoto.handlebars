@@ -13,18 +13,49 @@
 
 <div class="photo2">
     {{#if photoVIP}}
+
+        <!-- S'il y a qu'une photo -->
         {{#ifCond nbPhoto.0.nb "==" '1'}}
-            {{#each photoVIP}}
-                <div class="nom">
-                    <b>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</b>
-                </div>
-                </br></br>
-                <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/>
-                </br></br>
-                <div class="commentaire">
-                    {{this.PHOTO_COMMENTAIRE}}
-                </div>
-            {{/each}}
+            <div class="nom">
+                <b>{{photoVIP.VIP_PRENOM}} {{photoVIP.VIP_NOM}}</b>
+            </div>
+            </br></br>
+            <img src="/images/vip/{{photoVIP.PHOTO_ADRESSE}}"/>
+            </br></br>
+            <div class="commentaire">
+                {{photoVIP.PHOTO_COMMENTAIRE}}
+            </div>
+        {{/ifCond}}
+
+        <!-- S'il y a plusieurs photos -->
+        {{#ifCond nbPhoto.0.nb ">" '1'}}
+            <div class="nom">
+                <b>{{photoVIP.VIP_PRENOM}} {{photoVIP.VIP_NOM}}</b>
+            </div>
+            </br></br>
+            <img src="/images/vip/{{photoVIP.PHOTO_ADRESSE}}"/>
+            </br></br>
+            <div class="commentaire">
+                {{photoVIP.PHOTO_COMMENTAIRE}}
+            </div>
+            {{#ifCond photoVIP.PHOTO_NUMERO "==" '1'}}
+                </br>
+                <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button" value=">>"
+                                                                                          class="suivant"></a>
+            {{/ifCond}}
+            {{#ifCond photoVIP.PHOTO_NUMERO ">" '1'}}
+                {{#ifCond photoVIP.PHOTO_NUMERO "<" nbPhoto.0.nb}}
+                    </br>
+                    <div class="boutonACote">
+                        <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button"
+                                                                                                  value="<<"
+                                                                                                  class="precedent"></a>
+                        <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button"
+                                                                                                  value=">>"
+                                                                                                  class="suivant"></a>
+                    </div>
+                {{/ifCond}}
+            {{/ifCond}}
         {{/ifCond}}
     {{/if}}
 </div>

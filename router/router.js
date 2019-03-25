@@ -18,6 +18,7 @@ module.exports = function (app) {
     // albums
     app.get('/album', AlbumController.ListerAlbum);
     app.get('/album/:numVIP', AlbumController.ListerPhoto);
+    app.get('/album/:numVIP/:numPhoto', AlbumController.ListerPlsPhoto);
 
 //article
     app.get('/articles', ArticleController.ChoixArticle);
