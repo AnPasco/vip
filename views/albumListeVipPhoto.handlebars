@@ -47,12 +47,20 @@
                 {{#ifCond photoVIP.PHOTO_NUMERO "<" nbPhoto.0.nb}}
                     </br>
                     <div class="boutonACote">
-                        <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button"
+                        <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIPAv.PHOTO_NUMERO}}"><input type="button"
                                                                                                   value="<<"
                                                                                                   class="precedent"></a>
                         <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button"
                                                                                                   value=">>"
                                                                                                   class="suivant"></a>
+                    </div>
+                {{/ifCond}}
+                {{#ifCond photoVIP.PHOTO_NUMERO "==" nbPhoto.0.nb}}
+                    </br>
+                    <div class="boutonACote">
+                        <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIPAv.PHOTO_NUMERO}}"><input type="button"
+                                                                                                  value="<<"
+                                                                                                  class="precedent"></a>
                     </div>
                 {{/ifCond}}
             {{/ifCond}}

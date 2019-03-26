@@ -159,13 +159,12 @@ img {
 
 .suivant{
     display: inline-block;
-    margin-left: 72%;
+    margin-left: 10%;
     margin-bottom: 2%;
     margin-top: 2%;
 }
 
 .precedent{
-    margin-right: 12%;
     display: inline-block;
 }
 
