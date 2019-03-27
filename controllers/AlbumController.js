@@ -81,11 +81,6 @@ module.exports.ListerPlsPhoto = function (request, response) {
                 model.getNbPhoto(numVIP, function (err, result) {
                     callback(null, result)
                 })
-            },
-            function (callback) {
-                model.getAllPhotoVip(numVIP, function (err, result) {
-                    callback(null, result)
-                })
             }
         ],
         function (err, result) {
@@ -94,14 +89,10 @@ module.exports.ListerPlsPhoto = function (request, response) {
                 return;
             }
 
-            console.log(numPhoto);
-            console.log(numPhotoAv);
             response.photo = result[0];
             response.photoVIP = result[1][numPhoto];
             response.nbPhoto = result[2];
             response.photoVIPAv = result[1][numPhotoAv];
-            console.log(result[1][numPhoto]);
-            console.log(result[1][numPhotoAv]);
             response.render('albumListeVipPhoto', response);
         }
     );
