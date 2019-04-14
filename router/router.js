@@ -16,9 +16,14 @@ module.exports = function (app) {
     app.get('/repertoire/vip/:numVIP', VipController.DetailVIP);
 
     // albums
-    app.get('/album', AlbumController.ListerAlbum);
-    app.get('/album/:numVIP', AlbumController.ListerPhoto);
+    app.get('/album', AlbumController.gotoDebut);
     app.get('/album/:numVIP/:numPhoto', AlbumController.ListerPlsPhoto);
+    app.get('/album/debut', AlbumController.gotoDebut);
+    app.get('/album/precedent', AlbumController.gotoPrecedent);
+    app.get('/album/suivant', AlbumController.gotoSuivant);
+    app.get('/album/fin', AlbumController.gotoFin);
+    app.get('/album/:numVIP', AlbumController.ListerPhoto);
+
 
 //article
     app.get('/articles', ArticleController.ChoixArticle);

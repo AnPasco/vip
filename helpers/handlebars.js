@@ -74,6 +74,8 @@ function hbsHelpers(handlebars) {
                 switch (operator) {
                     case '==':
                         return (v1 == v2) ? options.fn(this) : options.inverse(this);
+                    case '!=':
+                        return (v1 != v2) ? options.fn(this) : options.inverse(this);
                     case '===':
                         return (v1 === v2) ? options.fn(this) : options.inverse(this);
                     case '<':

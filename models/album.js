@@ -11,6 +11,16 @@ module.exports.getAllPhoto = function (callback) {
     });
 };
 
+module.exports.cptGetAllPhoto = function (callback) {
+    db.getConnection(function (err, connexion) {
+        if (!err) {
+            let sql = "SELECT count(vip.VIP_NUMERO) as nbPhoto FROM vip";
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+};
+
 module.exports.getAllPhotoVip = function (numVIP, callback) {
     db.getConnection(function (err, connexion) {
         if (!err) {

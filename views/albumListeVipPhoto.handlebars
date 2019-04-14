@@ -8,7 +8,27 @@
             </div>
         {{/each}}
     {{/if}}
-    <input type="button" value="Suivant" class="suivant">
+    <div class="bord">
+        {{#ifCond debutAlbumPhoto '!=' 0}}
+            <a href="/album/debut">
+                <button type="button">Début</button>
+            </a>
+
+            <a href="/album/precedent">
+                <button id="precedent">Précédent</button>
+            </a>
+        {{/ifCond}}
+
+        {{#ifCond this.debutAlbumPhoto '!=' "fin" }}
+            <a href="/album/suivant">
+                <button id="suivant">Suivant</button>
+            </a>
+
+            <a href="/album/fin">
+                <button id="fin">Fin</button>
+            </a>
+        {{/ifCond}}
+    </div>
 </div>
 
 <div class="photo2">
@@ -40,16 +60,18 @@
             </div>
             {{#ifCond photoVIP.PHOTO_NUMERO "==" '1'}}
                 </br>
-                <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button" value=">>"
-                                                                                          class="suivant"></a>
+                <div class="boutonACote">
+                    <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button" value=">>"
+                                                                                              class="suivant"></a>
+                </div>
             {{/ifCond}}
             {{#ifCond photoVIP.PHOTO_NUMERO ">" '1'}}
                 {{#ifCond photoVIP.PHOTO_NUMERO "<" nbPhoto.0.nb}}
                     </br>
                     <div class="boutonACote">
                         <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIPAv.PHOTO_NUMERO}}"><input type="button"
-                                                                                                  value="<<"
-                                                                                                  class="precedent"></a>
+                                                                                                    value="<<"
+                                                                                                    class="precedent"></a>
                         <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIP.PHOTO_NUMERO}}"><input type="button"
                                                                                                   value=">>"
                                                                                                   class="suivant"></a>
@@ -59,8 +81,8 @@
                     </br>
                     <div class="boutonACote">
                         <a href="/album/{{photoVIP.VIP_NUMERO}}/{{photoVIPAv.PHOTO_NUMERO}}"><input type="button"
-                                                                                                  value="<<"
-                                                                                                  class="precedent"></a>
+                                                                                                    value="<<"
+                                                                                                    class="precedent"></a>
                     </div>
                 {{/ifCond}}
             {{/ifCond}}
